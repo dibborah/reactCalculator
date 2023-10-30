@@ -1,0 +1,60 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(to right, #00AAFF, #00FF6C);
+}
+
+.calculator-grid {
+    display: grid;
+    margin-top: 2rem;
+    grid-template-columns: repeat(4, 6rem);
+    grid-template-rows: minmax(7rem, auto) repeat(5, 6rem); 
+    /*This makes the max width of output 7rem and the auto fits takes the output row below  as required when number in the output field increases and repeating makes rest of the 5 row to 6 rem larger */
+    justify-content: center;
+    /* align-items: center; // Why align item creates the gaps between the rows and seperates the row I have no clue about*/ 
+}
+
+.calculator-grid > button {
+    cursor : pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+    background-color: rgba(255, 255, 255, .75);    
+}
+
+.calculator-grid > button:hover,
+.calculator-grid >  button:focus{
+    background-color: rgba(255, 255, 255, .9);
+}
+
+.span-two {
+    grid-column: span 2; /* This makes the AC and = button to two blocks of span*/
+}
+
+.output {
+    grid-column: 1/-1; /*Takes the entire row  */
+    background-color: rgba(0, 0, 0, .75);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding: .75rem;
+    word-wrap: break-word;/*Wraping the output contents in the next line when contents increases*/
+    word-break: break-all;/*Wraping the output contents in the next line when contents increases*/
+}
+
+.output .previous-operand{
+    color: rgba(255, 255, 255, .75);
+    font-size: 1.5rem;
+}
+.output .current-operand{
+    color: white;
+    font-size: 2rem;
+}
+
+ 
